@@ -51,6 +51,9 @@ public class UserServiceImpl implements IUserAuthService {
       }else if (dto.getRole().equals("PEMILIK")){
         String[] roleNames = new String[]{"ROLE_USER", "ROLE_READ", "ROLE_PEMILIK"}; // pemilik
         r = repoRole.findByNameIn(roleNames);
+      }else if (dto.getRole().equals("SUPERUSER")){
+        String[] roleNames = new String[]{"ROLE_USER", "ROLE_READ", "ROLE_SUPERUSER"}; // super user
+        r = repoRole.findByNameIn(roleNames);
       }else {
         String[] roleNames = new String[]{"ROLE_USER", "ROLE_READ"}; // default
         r = repoRole.findByNameIn(roleNames);
